@@ -37,19 +37,3 @@ SELECT date, user_id, account_id,sum_tasks_used,
        AS dow
 FROM source_data.tasks_used_da
 ORDER BY user_id, account_id, date;
-
-CREATE VIEW jchumley.user_aggregates_by_date
-AS(
-SELECT date, SUM(sum_tasks_used) AS cum_sum_task_used, COUNT(distinct(user_id)) AS num_users,
-       SUM(sum_tasks_used) as total_sum_tasks_used,
-       SUM(sum_tasks_used)/count(user_id) AS average_tasks_used
-FROM jchumley.active_users_analysis
-GROUP BY date
-ORDER BY date);
-
-CREATE VIEW jchumley.total_sum_tasks_used
-AS(
-SELECT user_id, SUM(sum_tasks_used) as total_sum_tasks_used
-FROM jchumley.active_users_analysis
-GROUP BY user_id
-ORDER BY user_id);
