@@ -1,7 +1,7 @@
 ## Zapier Monthly Active Users Analysis
 
 ### Prerequisites
-1. The following should be installed on your machine.
+1. The following should be installed on your machine:
     * Python 3.7
     * Anaconda or Miniconda for Python 3.7
         * [Download Anaconda here](https://www.anaconda.com/distribution/)
@@ -15,7 +15,7 @@
 
 ### Creating a Jupyter kernel using the environment.yml file
 
-1. From the project directory and using the command line, run the following to create a virtual environment using the environment.yml file.
+1. From the project root and using the command line, run the following to create a virtual environment using the environment.yml file.
 
     `conda env create -f environment.yml`
 
