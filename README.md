@@ -1,14 +1,13 @@
 ## Zapier Monthly Active Users Analysis
 
 ### Prerequisites
-
-1. To run the Jupyter notebook in your local environment, the following should be installed on your machine.
+1. The following should be installed on your machine.
     * Python 3.7
     * Anaconda or Miniconda for Python 3.7
         * [Download Anaconda here](https://www.anaconda.com/distribution/)
         * [Download Miniconda here](https://docs.conda.io/en/latest/miniconda.html)
 2. Environment variables to connect to the Redshift cluster in a .bashrc or .bash_profile file. 
-    The following names should be used:
+    The following variable names should be used in your environment:
     * ZAP_USER for user name
     * ZAP_PASS for password
     * ZAP_HOST for host
@@ -42,15 +41,18 @@
 
 ### ETL Overview 
 * A view called **active_users_analysis** has been created in the **jchumley** schema in the **zapier** database. 
-    * See the script [here]()
+    * See the script [here](https://github.com/janelchumley/zapier_assessment/blob/master/ETL/active_users_analysis.sql)
     * Definitions of columns in the **active_users_analysis** view are are follows:
-        * date: raw, no transformation applied
-        * user_id: raw, no transformation applied
-        * account_id: raw, no transformation applied
-        * sum_tasks_used: raw, no transformation applied
+        * date: 
+            * raw, no transformations applied
+        * user_id: 
+            * raw, no transformations applied
+        * account_id: 
+            * raw, no transformations applied
+        * sum_tasks_used: 
+            * raw, no transformations applied
         * cum_sum_tasks_used: 
             * Cumulative sum of **sum_tasks_used** for the date in question
-            * Not used in the analysis but may come in use later
             * **SUM** operator window function
         * num_days_since_last_active: 
             * Computes the number of days since the user was last active based on the date for the given row in question
@@ -75,6 +77,6 @@
             * String representation of day of week
             * Extracted from date using the Postgres/Redshift **DATE_PART** operator and **CASE/WHEN** conditionals
 
-Author: Janel Roland Chumley 
+Author: Janel Roland Chumley, Sr. Decision Scientist Candidate  
 
 Please email [janelchumley@gmail.com](janelchumley@gmail.com) for questions regarding this document. 
